@@ -7,9 +7,9 @@ func main() {
 
 	log.Info("this is a log example")
 
-	items := []string{"one", "two", "three"}
+	colors := []string{"red", "blue", "green"}
 
-	for _, color := range items {
+	for _, color := range colors {
 		log.Debug("added color %s", color)
 	}
 }
