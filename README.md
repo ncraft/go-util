@@ -25,8 +25,8 @@ func main() {
 
 Prints:
 ```
-INFO:2018/12/07 11:28:23 main.go:8: this is a log example
-DEBUG:2018/12/07 11:28:23 main.go:13: added color one
-DEBUG:2018/12/07 11:28:23 main.go:13: added color two
-DEBUG:2018/12/07 11:28:23 main.go:13: added color three
+INFO: 2018/12/07 11:28:23 main.go:8: this is a log example
+DEBUG: 2018/12/07 11:28:23 main.go:13: added color one
+DEBUG: 2018/12/07 11:28:23 main.go:13: added color two
+DEBUG: 2018/12/07 11:28:23 main.go:13: added color three
 ```
