@@ -1,1 +1,1 @@
-module github.com/nextcraft-gmbh/go-util
+module github.com/ncraft/go-util
