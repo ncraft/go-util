@@ -7,17 +7,18 @@ import (
 )
 
 // Wraps an original http.Handler with credentials to do http basic authentication and a realm text to be displayed in 401 responses.
+//
 // Usage:
 //  authHandler := httpUtil.BasicAuthHandler{
-//		Username: "user123",
-//		Password: "secret",
-//		Realm:    "Please enter your username and password",
-//		OriginalHandler: http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
-//			// ..
-//		}),
-//	}
+//   Username: "user123",
+//   Password: "secret",
+//	 Realm:    "Please enter your username and password",
+//   OriginalHandler: http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+//    // ..
+//   }),
+//  }
 //
-//	http.Handle("/sample", authHandler)
+//  http.Handle("/sample", authHandler)
 type BasicAuthHandler struct {
 	Username        string
 	Password        string
