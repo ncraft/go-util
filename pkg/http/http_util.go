@@ -1,4 +1,4 @@
-// Provides some http utils e.g. for basic authentication.
+// HTTP utils for basic authentication etc.
 package http
 
 import (
@@ -6,7 +6,18 @@ import (
 	"net/http"
 )
 
-// Wraps an original http.Handler with credentials and a realm text to be displayed in 401 responses.
+// Wraps an original http.Handler with credentials to do http basic authentication and a realm text to be displayed in 401 responses.
+// Usage:
+//  authHandler := httpUtil.BasicAuthHandler{
+//		Username: "user123",
+//		Password: "secret",
+//		Realm:    "Please enter your username and password",
+//		OriginalHandler: http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+//			// ..
+//		}),
+//	}
+//
+//	http.Handle("/sample", authHandler)
 type BasicAuthHandler struct {
 	Username        string
 	Password        string
@@ -14,7 +25,7 @@ type BasicAuthHandler struct {
 	OriginalHandler http.Handler
 }
 
-// BasicAuthHandler satisfies http.Handler interfaces.
+// BasicAuthHandler satisfies http.Handler interface and after checking the credentials delegates to the original handler.
 func (h BasicAuthHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 	user, pass, ok := r.BasicAuth()
 
