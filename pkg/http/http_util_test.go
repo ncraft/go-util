@@ -7,13 +7,13 @@ import (
 	"testing"
 )
 
-func TestHealthCheckHandler(t *testing.T) {
+func TestHttpAuthHandler(t *testing.T) {
 	req, err := http.NewRequest("GET", "/colors", nil)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	authHandler := HandlerWithHttpAuth{
+	authHandler := BasicAuthHandler{
 		Username: "user123",
 		Password: "secret",
 		Realm:    "Please enter your username and password for this site",

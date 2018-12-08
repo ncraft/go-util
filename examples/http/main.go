@@ -11,7 +11,7 @@ type colors []string
 func main() {
 	colors := colors{"red", "blue", "green"}
 
-	authHandler := httpUtil.HandlerWithHttpAuth{
+	authHandler := httpUtil.BasicAuthHandler{
 		Username:        "user123",
 		Password:        "secret",
 		Realm:           "Please enter your username and password for this site",
