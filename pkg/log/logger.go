@@ -1,3 +1,4 @@
+// Very simple logging implementation with log levels DEBUG, INFO and ERROR.
 package log
 
 import (

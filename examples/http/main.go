@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	httpUtil "github.com/ncraft/go-util/pkg/http"
 	"net/http"
+
+	httpUtil "github.com/ncraft/go-util/pkg/http"
 )
 
 type colors []string
@@ -14,7 +15,7 @@ func main() {
 	authHandler := httpUtil.BasicAuthHandler{
 		Username:        "user123",
 		Password:        "secret",
-		Realm:           "Please enter your username and password for this site",
+		Realm:           "Please provide username and password",
 		OriginalHandler: http.HandlerFunc(colors.list),
 	}
 

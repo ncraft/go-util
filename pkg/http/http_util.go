@@ -12,7 +12,7 @@ import (
 //  authHandler := httpUtil.BasicAuthHandler{
 //      Username: "user123",
 //      Password: "secret",
-//	    Realm:    "Please enter your username and password",
+//      Realm:    "Please provide username and password",
 //      OriginalHandler: http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
 //          // ..
 //      }),
