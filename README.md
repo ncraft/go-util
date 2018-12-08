@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/ncraft/go-util.svg?branch=master)](https://travis-ci.com/ncraft/go-util)
+
 # go-util
 
 Collection of utils for logging, configuration, http basic auth etc.
