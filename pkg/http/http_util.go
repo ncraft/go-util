@@ -10,12 +10,12 @@ import (
 //
 // Usage:
 //  authHandler := httpUtil.BasicAuthHandler{
-//   Username: "user123",
-//   Password: "secret",
-//	 Realm:    "Please enter your username and password",
-//   OriginalHandler: http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
-//    // ..
-//   }),
+//      Username: "user123",
+//      Password: "secret",
+//	    Realm:    "Please enter your username and password",
+//      OriginalHandler: http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+//          // ..
+//      }),
 //  }
 //
 //  http.Handle("/sample", authHandler)
