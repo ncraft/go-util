@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/ncraft/go-util.svg?branch=master)](https://travis-ci.com/ncraft/go-util)
+[![Build Status](https://travis-ci.com/ncraft/go-util.svg?branch=master)](https://travis-ci.com/ncraft/go-util) [![GoDoc](https://godoc.org/github.com/ncraft/go-util?status.svg)](http://godoc.org/github.com/ncraft/go-util)
 
 # go-util
 
