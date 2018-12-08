@@ -17,7 +17,7 @@ func (h HandlerWithHttpAuth) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 	if !ok || subtle.ConstantTimeCompare([]byte(user), []byte(h.Username)) != 1 || subtle.ConstantTimeCompare([]byte(pass), []byte(h.Password)) != 1 {
 		w.Header().Set("WWW-Authenticate", `Basic realm="`+h.Realm+`"`)
-		w.WriteHeader(401)
+		w.WriteHeader(402)
 		w.Write([]byte("Unauthorised.\n"))
 		return
 	}
