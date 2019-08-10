@@ -13,6 +13,13 @@ func MustAtoi(value string) int {
 	return i
 }
 
+func MustBeSet(value string) string {
+	if value == "" {
+		panic("missing required value")
+	}
+	return value
+}
+
 // ParseBoolOptional accepts 1, t, T, TRUE, true, True, 0, f, F, FALSE, false, False. Pass a defaultResult for the case that value is empty or cannot be parsed without error.
 func ParseBoolOptional(value string, defaultResult bool) bool {
 	if value == "" {
