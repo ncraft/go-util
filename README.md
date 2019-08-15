@@ -2,7 +2,7 @@
 
 # Machinery
 
-Machinery for logging, configuration, http basic auth etc.
+Machinery for logging, configuration, abstractions for execution flow, http basic auth etc.
 
 ## HTTP Basic authentication
 
