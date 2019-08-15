@@ -1,3 +1,4 @@
+// Package base provides simple validations and value parsing.
 package base
 
 import (
@@ -13,6 +14,7 @@ func MustAtoi(value string) int {
 	return i
 }
 
+// MustBeSet checks if a string value is set and returns it, otherwise panics.
 func MustBeSet(value string) string {
 	if value == "" {
 		panic("missing required value")
