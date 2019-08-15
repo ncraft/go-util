@@ -1,6 +1,6 @@
 package main
 
-import "github.com/ncraft/go-util/pkg/log"
+import "github.com/ncraft/machinery/pkg/log"
 
 func main() {
 	log.SetDebug(true)

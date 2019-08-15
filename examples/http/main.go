@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	httpUtil "github.com/ncraft/go-util/pkg/http"
+	httpUtil "github.com/ncraft/machinery/pkg/http"
 )
 
 type colors []string

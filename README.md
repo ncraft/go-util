@@ -1,8 +1,8 @@
-[![Build Status](https://travis-ci.com/ncraft/go-util.svg?branch=master)](https://travis-ci.com/ncraft/go-util) [![GoDoc](https://godoc.org/github.com/ncraft/go-util?status.svg)](http://godoc.org/github.com/ncraft/go-util)
+[![Build Status](https://travis-ci.com/ncraft/machinery.svg?branch=master)](https://travis-ci.com/ncraft/machinery) [![GoDoc](https://godoc.org/github.com/ncraft/machinery?status.svg)](http://godoc.org/github.com/ncraft/machinery)
 
-# go-util
+# Machinery
 
-Collection of utils for logging, configuration, http basic auth etc.
+Machinery for logging, configuration, http basic auth etc.
 
 ## HTTP Basic authentication
 
@@ -14,7 +14,7 @@ import (
 	"fmt"
 	"net/http"
 	
-	httpUtil "github.com/ncraft/go-util/pkg/http"
+	httpUtil "github.com/ncraft/machinery/pkg/http"
 )
 
 type colors []string
@@ -47,7 +47,7 @@ Example:
 ```go
 package main
 
-import "github.com/ncraft/go-util/pkg/log"
+import "github.com/ncraft/machinery/pkg/log"
 
 func main() {
 	log.SetDebug(true)
