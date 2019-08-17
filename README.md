@@ -1,8 +1,56 @@
 [![Build Status](https://travis-ci.com/ncraft/machinery.svg?branch=master)](https://travis-ci.com/ncraft/machinery) [![GoDoc](https://godoc.org/github.com/ncraft/machinery?status.svg)](http://godoc.org/github.com/ncraft/machinery)
 
-# Machinery
+# Nextcraft machinery
 
-Machinery for logging, configuration, abstractions for execution flow, http basic auth etc.
+Tools for logging, configuration, abstractions for execution flow, http basic auth etc.
+
+## Dependent command execution
+
+Can be used, for example, to delete a Kubernetes resource if it exists. It abstracts away the repeating pattern of checking if a resource exists and creating/deleting it, depending on it's existence.
+
+Use an `ExistenceDependentOperation` to conditionally run API calls, e.g. against Kubernetes. In the example bellow a nginx deployment is deleted if it previously existed. Otherwise, no action will be undertaken as a delete operation would fail if the resource does not exist:
+
+```go
+func deleteNginxDeploymentIfExists() {
+	err := flow.NewOperation(&flow.Options{
+		TargetObjectName: "nginx",
+		Execute:          deleteDeployment,
+		ExecOnExistence:  true,
+		ExistenceCheck: &existenceCheck{
+			get: getDeployment,
+		},
+	}).Run()
+
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+type existenceCheck struct {
+	get func(name string) (flow.NamedObject, error)
+}
+
+func (c *existenceCheck) Get(name string) (flow.NamedObject, error) {
+	return c.get(name)
+}
+
+func (c *existenceCheck) IsNotFoundError(err error) bool {
+	statusErr, ok := err.(*errors.StatusError)
+	if !ok {
+		return false
+	}
+
+	return statusErr.Status().Code == http.StatusNotFound
+}
+
+func deleteDeployment(name string) error {
+	return clientset.AppsV1().Deployments(namespace).Delete(name, deleteOptions())
+}
+
+func getDeployment(name string) (flow.NamedObject, error) {
+	return clientset.AppsV1().Deployments(namespace).Get(name, v1.GetOptions{})
+}
+```
 
 ## HTTP Basic authentication
 
